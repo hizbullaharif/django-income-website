@@ -1,3 +1,4 @@
 {
-    "git.ignoreLimitWarning": true
+    "git.ignoreLimitWarning": true,
+    "python.pythonPath": "C:\\Users\\Hizbullah\\PycharmProjects\\django-income-website\\venv\\Scripts\\python.exe"
 }
