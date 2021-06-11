@@ -1,6 +1,6 @@
 {% extends 'base-auth.html' %}
 {% load static %}
-{% block title %}Login{% endblock title %}
+{% block title %}Registration{% endblock title %}
 
 {% block content %}
     <div class="row">
@@ -10,24 +10,25 @@
         <div class="card mb-3">
             <h3 class="card-header">Register for free acount</h3>
             <div class="card-body">
-                <form>
-
-                     
+            {% include 'partials/message.html' %}
+                <form action="{% url 'register' %}" method="POST">
+                  {% csrf_token %}
                         <div class="form-group">
                             <label for="user name" class="form-label mt-4">Username</label>
                             <input type="text" name="username" class="form-control" id="username" placeholder="user name">
+                            <div class="invalid_feedbackuser invalid-feedback" style="display: none;"></div>
                           </div>
-                          <div class="invalid_feedback invalid-feedback" style="display: none;"></div>
+
                       <div class="form-group">
                         <label for="exampleInputEmail1" class="form-label mt-4">Email address</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                        <input type="email" name="email" class="form-control" id="useremail" aria-describedby="emailHelp" placeholder="Enter email">
+                        <div class="invalid_feedbackemail invalid-feedback" style="display: none;"></div>
                       </div>
                      
                       
                       <div class="form-group">
                         <label for="exampleInputPassword1" class="form-label mt-4">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                        <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
                       </div>
                       <input type="submit" value="Register" class="btn btn-block btn-primary mt-4">
                    
